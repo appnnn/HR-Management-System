@@ -1,0 +1,68 @@
+﻿<UserControl  x:Class="WpfApp1.LeaveRequestWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+       
+        Width="785" Height="550"
+       
+        
+        >
+
+    <Border CornerRadius="10">
+        <Border.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#E5E0F8" Offset="0.0"/>
+                <GradientStop Color="#B49DF0" Offset="0.5"/>
+                <!-- light purple -->
+                <GradientStop Color="#623ED0" Offset="1.0"/>
+                <!-- base color -->
+            </LinearGradientBrush>
+        </Border.Background>
+        <Border CornerRadius="10"
+     BorderThickness="1">
+
+            <Border.BorderBrush>
+                <SolidColorBrush Color="#CCCCCC"/>
+            </Border.BorderBrush>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+
+                    </Grid>
+                </Border>
+
+                <Grid Grid.Row="1" Margin="5">
+                    <Grid Margin="10">
+                        <TextBlock Text="Remaining Leaves:" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
+                        <ListBox Name="LeavesList" Margin="0,30,0,275"/>
+
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,140,0,150">
+                            <TextBlock Text="Select Leave:" FontWeight="Bold" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                            <ComboBox Name="LeaveTypeComboBox" Height="25" Width="250" SelectionChanged="LeaveTypeComboBox_SelectionChanged" />
+                        </StackPanel>
+                        <Calendar Name="LeaveCalendar" Margin="6,265,-6,30" SelectionMode="MultipleRange" SelectedDatesChanged="LeaveCalendar_SelectedDatesChanged"/>
+                        <Button x:Name="SubmitButton" Content="Submit Leave Request" Margin="0,435,15,8" Width="211" Background="#4C2BB0" BorderBrush="black"
+                                HorizontalAlignment="Right" Click="SubmitLeaveRequest_Click"
+                                Style="{StaticResource DeBtn}" IsEnabled="False"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Border>
+    </Border>
+</UserControl >
