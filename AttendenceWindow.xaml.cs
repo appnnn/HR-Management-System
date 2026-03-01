@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 using Microsoft.Data.SqlClient;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
-using WpfApp1.Model;
+//using WpfApp1.Model;
 
 namespace WpfApp1
 {

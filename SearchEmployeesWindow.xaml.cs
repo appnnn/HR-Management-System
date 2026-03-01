@@ -12,7 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using WpfApp1.View.HR_Role.UserControls;
+//using WpfApp1.View.HR_Role.UserControls;
 
 namespace WpfApp1
 {
@@ -178,7 +178,7 @@ namespace WpfApp1
         private void backButton_Click(object sender, RoutedEventArgs e)
         {
             // Create new instance of the EmployeeManagement UserControl
-            var employeeManagementControl = new EmployeeManagement();
+            //var employeeManagementControl = new EmployeeManagement();
 
             // Find the MainContentArea in the parent Window
             var parentWindow = Window.GetWindow(this);
@@ -188,7 +188,7 @@ namespace WpfApp1
                 if (mainContentArea != null)
                 {
                     // Set the ContentControl's content back to EmployeeManagement
-                    mainContentArea.Content = employeeManagementControl;
+                    //mainContentArea.Content = employeeManagementControl;
                 }
             }
 

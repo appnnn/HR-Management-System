@@ -9,8 +9,10 @@ namespace WpfApp1
 {
     public static class DatabaseHelper
     {
+        //public static readonly string ConnectionString =
+        //    @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\C# project\HR Management System\DB\asdf.mdf"";Integrated Security=True;Connect Timeout=30";
         public static readonly string ConnectionString =
-            @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\C# project\HR Management System\DB\asdf.mdf"";Integrated Security=True;Connect Timeout=30";
+            @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=""D:\lessons\2nd year 2nd sem\visual programming\group_project\asdf.mdf"";Integrated Security=True;Connect Timeout=30;Encrypt=True";
 
         public static void InitializeDatabase()
         {

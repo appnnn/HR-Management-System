@@ -44,11 +44,5 @@
     <Compile Update="SearchEmployeesWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View\EmployeeRegistrationWindow.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="View\HR_Role\UserControls\EmployeeManagement.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
 </Project>

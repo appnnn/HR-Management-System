@@ -11,8 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using WpfApp1.View.HR_Role.UserControls;
-using WpfApp1.Model;
+//using WpfApp1.View.HR_Role.UserControls;
+//using WpfApp1.Model;
 using System.Windows.Media.TextFormatting;
 using MaterialDesignThemes.Wpf;
 using MahApps.Metro.IconPacks;
@@ -43,10 +43,10 @@ namespace WpfApp1
             MainContentArea.Content = new Home(_user);
         }
 
-        private void LoadEmployeeManagement()
-        {
-            MainContentArea.Content = new EmployeeManagement();
-        }
+        //private void LoadEmployeeManagement()
+        //{
+        //    MainContentArea.Content = new EmployeeManagement();
+        //}
 
         private void LoadAttendanceAndLeave()
         {
@@ -126,10 +126,10 @@ namespace WpfApp1
             LoadHome();
         }
 
-        private void EmployeeManagementButton_Click(object sender, RoutedEventArgs e)
-        {
-            LoadEmployeeManagement();
-        }
+        //private void EmployeeManagementButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    LoadEmployeeManagement();
+        //}
 
         private void AttendanceAndLeaveButton_Click(object sender, RoutedEventArgs e)
         {
@@ -221,14 +221,14 @@ namespace WpfApp1
             {
                 // 1) Upsert attendance row for today
                 new SqlCommand($@"
-        IF EXISTS(SELECT 1 FROM {atbl} WHERE date = @date)
-        UPDATE {atbl} 
-        SET arrival_time = @time
-        WHERE date = @date;
-        ELSE
-        INSERT INTO {atbl} (date, arrival_time, exit_time, ot_hours, late)
-        VALUES (@date, @time, NULL, 0, 0);
-        ", conn, tx)
+                                IF EXISTS(SELECT 1 FROM {atbl} WHERE date = @date)
+                                UPDATE {atbl} 
+                                SET arrival_time = @time
+                                WHERE date = @date;
+                                ELSE
+                                INSERT INTO {atbl} (date, arrival_time, exit_time, ot_hours, late)
+                                VALUES (@date, @time, NULL, 0, 0);
+                                ", conn, tx)
                 .WithParams(("@date", today), ("@time", now))
                 .ExecuteNonQuery();
 

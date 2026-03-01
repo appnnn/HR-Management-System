@@ -9,13 +9,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Assets\947757aa4f401c5c46d196283a55c386.png" />
-    <None Remove="Assets\c0e442423a5dde61b9fa68e858ed26f8.png" />
-    <None Remove="Images\close.png" />
-    <None Remove="Images\delete.png" />
-    <None Remove="Images\down.png" />
-    <None Remove="Images\ribbon_8626105.png" />
-    <None Remove="Images\Untitled.jpg" />
+    <Compile Remove="Assets\**" />
+    <Compile Remove="Images\**" />
+    <EmbeddedResource Remove="Assets\**" />
+    <EmbeddedResource Remove="Images\**" />
+    <None Remove="Assets\**" />
+    <None Remove="Images\**" />
+    <Page Remove="Assets\**" />
+    <Page Remove="Images\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="moai-emoji.png" />
     <None Remove="—Pngtree—business office team meeting project_7183397.png" />
   </ItemGroup>
@@ -26,18 +30,6 @@
     <PackageReference Include="MaterialDesignThemes" Version="5.2.2-ci976" />
     <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.1" />
     <PackageReference Include="PDFsharp" Version="6.2.0-preview-3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Assets\947757aa4f401c5c46d196283a55c386.png" />
-    <Resource Include="Assets\c0e442423a5dde61b9fa68e858ed26f8.png" />
-    <Resource Include="Assets\moai-emoji.png" />
-    <Resource Include="Assets\—Pngtree—business office team meeting project_7183397.png" />
-    <Resource Include="Images\close.png" />
-    <Resource Include="Images\delete.png" />
-    <Resource Include="Images\down.png" />
-    <Resource Include="Images\ribbon_8626105.png" />
-    <Resource Include="Images\Untitled.jpg" />
   </ItemGroup>
 
   <ItemGroup>
