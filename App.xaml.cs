@@ -1,4 +1,10 @@
-﻿using System.Configuration;
+﻿using WpfApp1.Services;
+using WpfApp1.Models;
+using WpfApp1.Views.Shared;
+using WpfApp1.Views.Admin;
+using WpfApp1.Views.Manager;
+using WpfApp1.Views.Employee;
+using System.Configuration;
 using System.Data;
 using System.Windows;
 

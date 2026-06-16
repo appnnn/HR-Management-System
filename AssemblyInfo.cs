@@ -1,3 +1,9 @@
+﻿using WpfApp1.Services;
+using WpfApp1.Models;
+using WpfApp1.Views.Shared;
+using WpfApp1.Views.Admin;
+using WpfApp1.Views.Manager;
+using WpfApp1.Views.Employee;
 using System.Windows;
 
 [assembly:ThemeInfo(

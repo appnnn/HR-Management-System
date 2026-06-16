@@ -1,4 +1,10 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using WpfApp1.Services;
+using WpfApp1.Models;
+using WpfApp1.Views.Shared;
+using WpfApp1.Views.Admin;
+using WpfApp1.Views.Manager;
+using WpfApp1.Views.Employee;
+using Microsoft.Data.SqlClient;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -9,6 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfApp1.Views.Employee;
+using WpfApp1.Views.Manager;
 
 namespace WpfApp1;
 
@@ -86,20 +94,17 @@ public partial class MainWindow : Window
                 dialog.ShowDialog();
 
                 // Open appropriate dashboard
-                switch (role)
+                switch (role.ToLower())
                 {
                     case "admin":
                         new HRDashboardWindow(loggedInUser).Show();
                         break;
                     case "manager":
-                        new HRDashboardWindow(loggedInUser).Show();
-                        break;
-                    case "employee":
-                        new HRDashboardWindow(loggedInUser).Show();
+                        new HrDashboard(loggedInUser).Show();
                         break;
                     default:
-                        MessageBox.Show("Unknown role.");
-                        return;
+                        new EmployeeDashboard(loggedInUser).Show();
+                        break;
                 }
 
                 this.Close();
@@ -175,7 +180,8 @@ public partial class MainWindow : Window
 
     private void ForgotPasswordButton_Click(object sender, RoutedEventArgs e)
     {
-        MessageBox.Show("Please contact the Admin Department", "Forgot Password", MessageBoxButton.OK, MessageBoxImage.Information);
+        ForgotPasswordDialog dialog = new ForgotPasswordDialog();
+        dialog.Owner = this;
+        dialog.ShowDialog();
     }
-
 }

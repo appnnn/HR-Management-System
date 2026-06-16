@@ -2,7 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib"
                     xmlns:Icon="http://metro.mahapps.com/winfx/xaml/iconpacks"
-                    xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2">
+                    xmlns:theme="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero2"
+                    xmlns:local="clr-namespace:WpfApp1"
+        xmlns:services="clr-namespace:WpfApp1.Services">
+    
 
     <SolidColorBrush x:Key="PrimaryColor" Color="#0ea5e9" />
     <SolidColorBrush x:Key="PrimaryColor_300" Color="#7dd3fc" />
@@ -92,7 +95,7 @@
 
     <Style x:Key="textboxSearch" TargetType="TextBox">
         <Setter Property="Background" Value="White"/>
-        <Setter Property="Foreground" Value="#b0b9c6"/>
+        <Setter Property="Foreground" Value="#323232"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="FontSize" Value="12"/>
         <Setter Property="Padding" Value="15 10"/>
@@ -660,22 +663,19 @@
 
     <Style x:Key="RoundTextBox" TargetType="TextBox" BasedOn="{StaticResource WatermarkedTextBox}">
         <Setter Property="Background" Value="White"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Margin" Value="0"/>
-        <Setter Property="BorderBrush" Value="Gray"/>
-        <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">
                     <Border Background="{TemplateBinding Background}" 
-                        BorderBrush="{TemplateBinding BorderBrush}" 
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="5">
+                        CornerRadius="12">
                         <!-- 🎯 Rounded Corners Here -->
                         <Grid>
                             <ScrollViewer x:Name="PART_ContentHost" />
                             <TextBlock x:Name="Watermark"
                                    Text="{TemplateBinding Tag}"
-                                   Foreground="#7D7D7D"
+                                   Foreground="#7f8c8d"
                                    Margin="10,0,0,0"
                                    IsHitTestVisible="False"
                                    Visibility="Collapsed"
@@ -773,12 +773,13 @@
 
     <Style x:Key="StandardComboBox" TargetType="ComboBox">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="#7D7D7D"/>
+        <Setter Property="Foreground" Value="#7f8c8d"/>
         <Setter Property="BorderBrush" Value="#7D7D7D"/>
         <Setter Property="BorderThickness" Value="0,0,0,1"/>
         <Setter Property="Padding" Value="5"/>
         <Setter Property="Margin" Value="0,0,0,25"/>
         <Setter Property="Height" Value="30"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
     </Style>
 
     <!--<Style x:Key="WatermarkedDatePicker" TargetType="DatePicker">
@@ -816,7 +817,8 @@
     </Style>-->
 
     <Style x:Key="WatermarkedPasswordBox" TargetType="PasswordBox"
-     xmlns:local="clr-namespace:WpfApp1">
+     xmlns:local="clr-namespace:WpfApp1"
+        xmlns:services="clr-namespace:WpfApp1.Services">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="#7D7D7D"/>
         <Setter Property="BorderThickness" Value="0,0,0,1"/>
@@ -846,13 +848,31 @@
                             <Setter TargetName="Watermark" Property="Foreground" Value="Black"/>
                         </Trigger>
                         <!-- Show Watermark if password is empty -->
-                        <DataTrigger Binding="{Binding Path=(local:PasswordBoxHelper.Password), RelativeSource={RelativeSource Self}}" Value="">
+                        <DataTrigger Binding="{Binding Path=(services:PasswordBoxHelper.Password), RelativeSource={RelativeSource Self}}" Value="">
                             <Setter TargetName="Watermark" Property="Visibility" Value="Visible"/>
                         </DataTrigger>
-                        <DataTrigger Binding="{Binding Path=(local:PasswordBoxHelper.Password), RelativeSource={RelativeSource Self}}" Value="{x:Null}">
+                        <DataTrigger Binding="{Binding Path=(services:PasswordBoxHelper.Password), RelativeSource={RelativeSource Self}}" Value="{x:Null}">
                             <Setter TargetName="Watermark" Property="Visibility" Value="Visible"/>
                         </DataTrigger>
                     </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="Calendar" x:Key="BorderlessCalendar">
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Calendar">
+                    <Grid>
+                        <CalendarItem x:Name="PART_CalendarItem"
+                                  Background="Transparent"
+                                  BorderThickness="0"
+                                  BorderBrush="Transparent"/>
+                    </Grid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

@@ -47,20 +47,33 @@
 
 
     <Border Background="{StaticResource {x:Static SystemColors.WindowBrushKey}}" 
-            CornerRadius="40" >
+            CornerRadius="15" >
         <Border.Clip>
             <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0,0,1090,751"/>
         </Border.Clip>
 
         <Canvas ClipToBounds="True" Margin="-552,0,0,0"  MouseLeftButtonDown="Canvas_MouseLeftButtonDown">
 
-            <Button Content="✕" Canvas.Left="1592" Width="40" Height="40" 
-FontSize="25" FontWeight="ExtraBold" Background="Transparent" Foreground="Black" 
-BorderThickness="0" Click="CloseWindow" HorizontalAlignment="Center" VerticalAlignment="Top" />
 
 
+            <Button x:Name="btnClose" Panel.ZIndex="999" Canvas.Left="1597" Canvas.Top="-12" Width="50" Height="71" 
+         
+             Style="{StaticResource CloseBtn}"
+             Click="CloseWindow" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Button.Content>
+                    <Image Source="/Images/close.png" Height="38" Width="35" RenderTransformOrigin="0.517,0.337"/>
+                </Button.Content>
+            </Button>
+            <Button x:Name="btnMin" Panel.ZIndex="999" Canvas.Left="1547" Canvas.Top="-12" Width="50" Height="71" 
+         
+ Style="{StaticResource MinimizeBtn}"
+ Click="MinimizeWindow" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <Button.Content>
+                    <Image Source="/Images/delete.png" Height="38" Width="35" RenderTransformOrigin="0.517,0.337"/>
+                </Button.Content>
+            </Button>
 
-            <Rectangle Width="881" Height="878" Fill="#623ed0" RadiusX="165.879" RadiusY="165.879"
+            <Rectangle Width="881" Height="878" Fill="#3498db" RadiusX="165.879" RadiusY="165.879"
                   Canvas.Left="265" Canvas.Top="-62" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top" StrokeStartLineCap="Flat">
                 <Rectangle.RenderTransform>
                     <TransformGroup>
@@ -94,8 +107,8 @@ BorderThickness="0" Click="CloseWindow" HorizontalAlignment="Center" VerticalAli
             </Image>
 
 
-            <Button Background="Lavender" Content="LogIn" Height="47" Canvas.Left="671" Canvas.Top="492" Width="332" Click="Login_Click_1"
-        VerticalAlignment="Top" FontWeight="Bold" FontStyle="Normal" HorizontalAlignment="Center" FontSize="22">
+            <Button Background="#217DBB" Foreground="White" Content="LogIn" Height="47" Canvas.Left="671" Canvas.Top="492" Width="332" Click="Login_Click_1"
+                    VerticalAlignment="Top" FontWeight="Bold" FontStyle="Normal" HorizontalAlignment="Center" FontSize="22">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Template">
@@ -164,37 +177,21 @@ BorderThickness="0" Click="CloseWindow" HorizontalAlignment="Center" VerticalAli
 
             </Grid>
 
-            <TextBox Canvas.Left="651" TextWrapping="Wrap" Text="Welcome Back!" Canvas.Top="213" Width="416"
-         TextChanged="TextBox_TextChanged" HorizontalAlignment="Left" VerticalAlignment="Top"
-         FontSize="53" FontWeight="Bold" Height="75" Foreground="#eff2f7" IsReadOnly="True"
-         RenderTransformOrigin="0.723,-0.526">
-                <TextBox.Style>
-                    <Style TargetType="TextBox">
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="TextBox">
-                                    <Border BorderBrush="Gray" BorderThickness="0" CornerRadius="10">
-                                        <ScrollViewer x:Name="PART_ContentHost"/>
-                                    </Border>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
+            <TextBlock Canvas.Left="712" TextWrapping="Wrap" Text="Welcome!"  Canvas.Top="228" Width="250"
+ HorizontalAlignment="Center" VerticalAlignment="Top"
+FontSize="53" FontWeight="Bold" Height="75" Foreground="#eff2f7" 
+RenderTransformOrigin="0.723,-0.526">
 
-                    </Style>
-                </TextBox.Style>
-            </TextBox>
+            </TextBlock>
 
 
-
-
-
-            <Button Canvas.Left="889" Canvas.Top="460" Width="120" Height="22"
+            <Button Canvas.Left="884" Canvas.Top="460" Width="120" Height="22"
       Content="Forgot Password?" HorizontalAlignment="Left" VerticalAlignment="Center"
-      FontWeight="DemiBold"  Click="ForgotPasswordButton_Click" RenderTransformOrigin="0.379,-2.18" BorderThickness="0,0,0,0" Foreground="#FFEFF2F7">
+      FontWeight="DemiBold"  Click="ForgotPasswordButton_Click" RenderTransformOrigin="0.379,-2.18" BorderThickness="0" Foreground="#FFEFF2F7">
                 <Button.Style>
                     <Style TargetType="Button">
 
-                        <Setter Property="Background" Value="#623ed0"/>
+                        <Setter Property="Background" Value="Transparent"/>
                         <Style.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="RenderTransform">
@@ -224,12 +221,16 @@ BorderThickness="0" Click="CloseWindow" HorizontalAlignment="Center" VerticalAli
             </Button>
 
 
-            <Button Content="Don't have an account? Sign Up&#xA;" Height="22" Canvas.Left="720" Canvas.Top="551" Width="226" Click="Button_Click_1" 
-        HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="14" FontWeight="DemiBold" RenderTransformOrigin="0.379,-2.18" BorderThickness="0,0,0,0" Foreground="#FFEFF2F7">
+            <TextBlock Text="Don't have an account?" 
+           FontSize="14" 
+           Foreground="#FFEFF2F7" Panel.ZIndex="999" FontWeight="DemiBold" Canvas.Left="733" Canvas.Top="559" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+            <Button Content="Sign Up&#xA;" Height="22" Canvas.Left="880" Canvas.Top="558" Width="74" Click="Button_Click_1" 
+        HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="14" FontWeight="DemiBold" RenderTransformOrigin="0.379,-2.18" BorderThickness="0,0,0,0" Foreground="#FFEFF2F7">
                 <Button.Style>
                     <Style TargetType="Button">
 
-                        <Setter Property="Background" Value="#623ed0"/>
+                        <Setter Property="Background" Value="Transparent"/>
                         <Style.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Template">
@@ -282,15 +283,9 @@ BorderThickness="0" Click="CloseWindow" HorizontalAlignment="Center" VerticalAli
                 <TextBlock x:Name="UsernamePlaceholder1" Text="Password" Panel.ZIndex="10" Foreground="Gray" FontSize="18" Height="25" Width="92" Margin="0,0,180,0"/>
                 <Image x:Name="imag1" Source="/Assets/947757aa4f401c5c46d196283a55c386.png" Width="38" Height="30" />
             </StackPanel>
-            <Button Content="─" Canvas.Left="1567" Canvas.Top="-16" Width="20" Height="40" 
-        FontSize="46" FontWeight="ExtraBold" Background="Transparent" Foreground="Black" 
-        BorderThickness="0" Click="MinimizeWindow" HorizontalAlignment="Center" VerticalAlignment="Top" />
 
 
         </Canvas>
 
     </Border>
-
-
-
 </Window>

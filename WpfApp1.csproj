@@ -11,6 +11,7 @@
   <ItemGroup>
     <None Remove="Assets\947757aa4f401c5c46d196283a55c386.png" />
     <None Remove="Assets\c0e442423a5dde61b9fa68e858ed26f8.png" />
+    <None Remove="Images\a.jpg" />
     <None Remove="Images\close.png" />
     <None Remove="Images\delete.png" />
     <None Remove="Images\down.png" />
@@ -33,6 +34,7 @@
     <Resource Include="Assets\c0e442423a5dde61b9fa68e858ed26f8.png" />
     <Resource Include="Assets\moai-emoji.png" />
     <Resource Include="Assets\—Pngtree—business office team meeting project_7183397.png" />
+    <Resource Include="Images\a.jpg" />
     <Resource Include="Images\close.png" />
     <Resource Include="Images\delete.png" />
     <Resource Include="Images\down.png" />
